@@ -1,0 +1,64 @@
+********************************************HTML************************
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI CALCULATOR</title>
+    <style>
+      
+       
+.container{
+    justify-content: center;
+    text-align: center;
+
+}
+.box{
+    height: 100px;
+    width: 100px;
+    background-color: blue;
+}
+    </style>
+   
+   
+</head>
+
+<body>
+   <div class="container">
+    <h2>BMI CALCULATOR</h2>
+    <label  for="height">Height in CM</label>
+    <input class="height" type="text" id="height" name="height"><br><br>
+    <label  for="weight">weight in KG</label>
+    <input class="weight" type="text" id="weight" name="weight"><br><br>
+    <div class="box">
+       
+    </div>
+    <button>calculate</button>
+    <h2>BMI weight guide</h2>
+    <p>under weight: less than 18.l</p>
+    <p>Normal Range : 18.1 and 24.9</p>
+    <p>Overweight : Greater than 24.9</p>
+
+   </div>
+    <script src="projet2.js"></script>
+</body>
+</html>
+
+
+**********************************JAVA SCRIPT*************************************
+let heightElement = document.querySelector(".height");
+let weightElement = document.querySelector(".weight");
+
+let button = document.querySelector("button");
+
+button.addEventListener("click", () => {
+    let height = parseFloat(heightElement.value);
+    let weight = parseFloat(weightElement.value);
+
+ 
+    let bmi = (weight / ((height / 100) ** 2)).toFixed(2);  // Corrected formula
+    let box = document.querySelector(".box");
+
+    box.innerHTML = `<span>${bmi}</span>`;
+});
+
