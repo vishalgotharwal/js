@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color changer</title>
+    <style>
+        .container{
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            position: relative;
+    bottom: -214px;
+            justify-content: center;
+          
+        }
+        .box{
+        
+            width: 80px;
+            height: 80px;
+            border: 1px solid black;
+            border-radius: 5px;
+           
+        }
+        .box1{
+          
+            background-color:slateblue;
+        }
+        .box2{
+            background-color:blue;
+        }
+        .box3{
+            background-color: green;
+        }
+        .box4{
+            background-color:red;
+        }
+        .h{
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            bottom: -210px;
+        }
+        .h2{
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            bottom: -225px;
+          
+         
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <h1 class="h">color scheme swithcher</h1>
+    <div class="container">
+
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <div class="box box4"></div>
+      
+    </div>
+    <h2 class="h2">try clicking on one of the colors above to change the background color of this page!</h2>
+   
+    <script src="project1.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+**********************//*********************
+//java script code
+// Select all elements with the class "box"
+let elements = document.querySelectorAll(".box");
+
+elements.forEach(function(element) {
+    // Add a click event listener to each element
+    element.addEventListener("click", function() {
+       
+        document.body.style.backgroundColor = getComputedStyle(element).backgroundColor;
+    });
+});
+
