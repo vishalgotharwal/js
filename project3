@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>local clock</title>
+    <style>
+        body{
+             background-color: black;
+        }
+        .conatiner{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            bottom: -321px;
+            position: relative;
+            flex-direction: column;
+        }
+        .box{
+            background-color: yellowgreen;
+            height: 50px;
+            width: 100px;
+            border-radius: 20px;
+            border: 2px solid whitesmoke;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .p{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="conatiner">
+        <p class="p">your local time</p>
+        <div class="box">
+
+        </div>
+    </div>
+
+    <script src="project3.js"></script>
+</body>
+</html>
+
+***********************************************javascript******************************
+function updateTime() {
+    // Get the current date and time
+    let now = new Date();
+
+    // Extract individual components of the date and time
+    let hours = now.getHours().toString().padStart(2, '0');
+    let minutes = now.getMinutes().toString().padStart(2, '0');
+    let seconds = now.getSeconds().toString().padStart(2, '0');
+
+    // Create the formatted time string
+    let ans = `${hours}-${minutes}-${seconds}`;
+
+    // Select the element with the class "box" and set its innerHTML to the formatted time string
+    let box = document.querySelector(".box");
+    box.innerHTML = ans;
+}
+
+// Update the time immediately
+updateTime();
+
+// Update the time every second
+setInterval(updateTime, 1000);
